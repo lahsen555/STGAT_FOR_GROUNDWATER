@@ -1,0 +1,171 @@
+<!doctype html><meta charset='utf-8'><title>Groundwater STGAT results</title>
+<style>body{font:16px system-ui;max-width:1300px;margin:40px auto;padding:0 24px;color:#182735}table{border-collapse:collapse}td,th{padding:9px;border-bottom:1px solid #ddd}img{max-width:100%}a{color:#176ca5}</style>
+<h1>Groundwater forecasting: optimized STGAT</h1>
+<p>One-month variants are selected separately for each model using September 2015-February 2017 validation MAE. The table scores identical measured labels from the previously examined November 2017-January 2020 benchmark.</p>
+<p><strong>Across all tested neural variants, GRU trained for H=1 has the lowest benchmark MAE (0.600 m), with RMSE 1.095 m. The validation-selected STGAT has MAE 0.605 m and RMSE 1.064 m. This observed ranking does not change the predefined validation selections.</strong></p>
+<h2>Validation-selected variants</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>training_horizon</th>
+      <th>validation_mae_m</th>
+      <th>n</th>
+      <th>scored_wells</th>
+      <th>mae_m</th>
+      <th>rmse_m</th>
+      <th>bias_m</th>
+      <th>macro_r2</th>
+      <th>mae_skill_vs_persistence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Persistence</td>
+      <td>1</td>
+      <td>0.6995</td>
+      <td>389</td>
+      <td>19</td>
+      <td>0.6192</td>
+      <td>1.0831</td>
+      <td>0.0665</td>
+      <td>0.3817</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <td>Seasonal</td>
+      <td>1</td>
+      <td>2.6428</td>
+      <td>389</td>
+      <td>19</td>
+      <td>1.4042</td>
+      <td>2.1716</td>
+      <td>0.6969</td>
+      <td>-4.2772</td>
+      <td>-1.2680</td>
+    </tr>
+    <tr>
+      <td>DampedTrend</td>
+      <td>6</td>
+      <td>0.6979</td>
+      <td>389</td>
+      <td>19</td>
+      <td>0.6200</td>
+      <td>1.0844</td>
+      <td>0.0573</td>
+      <td>0.3804</td>
+      <td>-0.0014</td>
+    </tr>
+    <tr>
+      <td>STGAT</td>
+      <td>1</td>
+      <td>0.6538</td>
+      <td>389</td>
+      <td>19</td>
+      <td>0.6046</td>
+      <td>1.0644</td>
+      <td>-0.0187</td>
+      <td>0.3924</td>
+      <td>0.0234</td>
+    </tr>
+    <tr>
+      <td>GRU</td>
+      <td>6</td>
+      <td>0.6726</td>
+      <td>389</td>
+      <td>19</td>
+      <td>0.6104</td>
+      <td>1.0754</td>
+      <td>-0.0083</td>
+      <td>0.3837</td>
+      <td>0.0141</td>
+    </tr>
+    <tr>
+      <td>LSTM</td>
+      <td>1</td>
+      <td>0.6585</td>
+      <td>389</td>
+      <td>19</td>
+      <td>0.6272</td>
+      <td>1.0786</td>
+      <td>-0.0816</td>
+      <td>0.2970</td>
+      <td>-0.0131</td>
+    </tr>
+  </tbody>
+</table>
+<img src='recommended_comparison.png' alt='Recommended models benchmark comparison'>
+<h2>All tested neural variants</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>training_horizon</th>
+      <th>selected</th>
+      <th>validation_mae_m</th>
+      <th>mae_m</th>
+      <th>rmse_m</th>
+      <th>macro_r2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>STGAT</td>
+      <td>1</td>
+      <td>True</td>
+      <td>0.6538</td>
+      <td>0.6046</td>
+      <td>1.0644</td>
+      <td>0.3924</td>
+    </tr>
+    <tr>
+      <td>STGAT</td>
+      <td>6</td>
+      <td>False</td>
+      <td>0.6588</td>
+      <td>0.6053</td>
+      <td>1.0622</td>
+      <td>0.3950</td>
+    </tr>
+    <tr>
+      <td>GRU</td>
+      <td>1</td>
+      <td>False</td>
+      <td>0.6840</td>
+      <td>0.6001</td>
+      <td>1.0947</td>
+      <td>0.3779</td>
+    </tr>
+    <tr>
+      <td>GRU</td>
+      <td>6</td>
+      <td>True</td>
+      <td>0.6726</td>
+      <td>0.6104</td>
+      <td>1.0754</td>
+      <td>0.3837</td>
+    </tr>
+    <tr>
+      <td>LSTM</td>
+      <td>1</td>
+      <td>True</td>
+      <td>0.6585</td>
+      <td>0.6272</td>
+      <td>1.0786</td>
+      <td>0.2970</td>
+    </tr>
+    <tr>
+      <td>LSTM</td>
+      <td>6</td>
+      <td>False</td>
+      <td>0.6711</td>
+      <td>0.6094</td>
+      <td>1.0777</td>
+      <td>0.3895</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Complete notebook plots</h2><p><a href='../optimized_h1_20261015/plots/index.html'>Dedicated one-month experiment: all 18 original plot types plus horizon comparison</a></p>
+<p><a href='../optimized_20261015/plots/index.html'>Six-month experiment: all 18 original plot types plus 1/3/6-month comparison</a></p>
+<p><a href='RESULTS.txt'>Detailed results and limitations</a> · <a href='all_variants.csv'>Both variants, without hiding unfavorable results</a> · <a href='selection.json'>Validation selection record</a></p>
+<p>Nominal prediction bands are calibrated on a separate period; spatial and temporal dependence limit coverage guarantees. Missing target labels are never scored.</p>

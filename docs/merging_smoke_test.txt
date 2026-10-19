@@ -1,0 +1,17 @@
+Merged 2660 rows for 20 wells, 2009-01 to 2020-01.
+Groundwater: 1789 observed, 762 imputed, 109 unresolved. Unmatched feature rows: 0.
+well_id                   column  missing  rows  missing_fraction
+    ALL                    level      871  2660          0.327444
+    ALL             level_filled      109  2660          0.040977
+    ALL months_since_observation        3  2660          0.001128
+    ALL              ET_MODIS_mm      133  2660          0.050000
+    ALL     ET_MODIS_mm_coverage      133  2660          0.050000
+    ALL                    LST_C     1866  2660          0.701504
+    ALL           LST_C_coverage     1842  2660          0.692481
+    ALL      Landsat_scene_count      174  2660          0.065414
+    ALL             NDVI_Landsat      174  2660          0.065414
+    ALL      ET_MODIS_sum_12m_mm      133  2660          0.050000
+    ALL           LST_mean_12m_C     2007  2660          0.754511
+Saved outputs\merging_check\merged.csv
+Missingness: outputs\merging_check\merged_missingness.csv
+Audit: outputs\merging_check\merged_audit.json

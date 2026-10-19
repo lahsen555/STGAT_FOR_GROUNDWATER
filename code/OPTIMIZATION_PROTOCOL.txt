@@ -1,0 +1,56 @@
+STGAT optimization protocol, fixed before the new benchmark results
+
+Two predefined experiments: direct forecasts of one month and of six months.
+Both receive 24 Optuna trials for each of STGAT, GRU and LSTM, three inner
+chronological folds, and a fixed three-seed ensemble (17, 42, 123).
+The six-month experiment reports leads 1, 3 and 6 from a single multi-output model.
+
+Inner training/validation ends:
+2012-08 / 2013-08; 2013-08 / 2014-08; 2014-08 / 2015-08.
+Only original measured groundwater history is used, with causal availability,
+age, persistence, robust trend and change-rate summaries. Precomputed Kalman
+values are ignored in memory so their later fitted parameters cannot leak
+into an earlier inner fold. No source data files are changed.
+Training-only scaling and feature-coverage decisions are repeated per fold.
+Hyperparameter selection minimizes mean MAE/persistence-MAE across the
+reported leads in the respective experiment. Missing labels never contribute.
+
+Outer training ends August 2015. September 2015-February 2017 selects each
+ensemble member's checkpoint. March-October 2017 is reserved for prediction
+interval calibration. The previously examined November 2017-January 2020
+period is called the existing benchmark, not an untouched new test set.
+
+For a recommended ONE-MONTH predictor, choose the experiment separately for
+each neural model using its pooled measured-label one-month MAE on all
+September 2015-February 2017 validation origins. Both experiments must have
+identical well/date labels there. Break exact ties in favor of the direct
+one-month experiment. This rule never uses benchmark metrics.
+Report both experiments, and compare recommended predictors on identical
+measured benchmark labels. Retain the six-month experiment for longer leads.
+The previously examined benchmark limits claims about new generalization;
+these experiments cannot establish universal STGAT superiority.
+
+Capacity, input history, environmental features, loss, regularization,
+learning rate, graph neighborhood/attention, trend and residual strength are
+searched. GRU/LSTM receive the same trial budget and residual/trend inputs.
+A separately CV-selected damped-trend baseline checks whether any gain can
+be explained by simple extrapolation. Model selection is not forced to
+choose a nonzero neural correction: epoch zero is an eligible checkpoint.
+
+Prediction bands use held-out pooled, training-scale-normalized absolute
+residual quantiles separately per lead. They are nominal 90% empirical
+bands. Spatial and temporal dependence prevent a finite-sample coverage
+guarantee; benchmark coverage and widths are reported explicitly.
+Permutation importance uses selection validation only and moves a physical
+feature together with its availability/coverage channels. This is a model
+diagnostic, not evidence of a causal effect.
+
+Each experiment preserves its source snapshot, input/source hashes, package
+versions, Optuna database, configurations, checkpoint selections, histories,
+dated predictions, label counts and all original notebook plot categories.
+
+Run from the project root with an environment containing requirements-model.txt:
+python code/STGNN_model.py --optimize --horizon 6 --trials 24 --output code/model_runs/NEW_SIX_MONTH_RUN
+python code/STGNN_model.py --optimize --horizon 1 --trials 24 --output code/model_runs/NEW_ONE_MONTH_RUN
+Rerender an existing run without training:
+python code/stgat_plots.py --run code/model_runs/EXISTING_RUN

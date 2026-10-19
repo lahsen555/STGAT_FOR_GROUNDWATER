@@ -1,0 +1,23 @@
+{
+  "release_date": "2026-10-19",
+  "regression_tests_passed": 47,
+  "checkpoints_replayed": 21,
+  "measured_benchmark_targets": 389,
+  "scored_benchmark_wells": 19,
+  "protected_input_forecast_checkpoint_source_files_unchanged": 126,
+  "python_source_syntax_checked": true,
+  "notebook_outputs_cleared": true,
+  "gee_javascript_syntax_checked": true,
+  "gee_remote_export_executed": false,
+  "full_hyperparameter_search_rerun": false,
+  "github_upload_performed": false,
+  "known_credential_patterns_found": false,
+  "local_user_paths_in_distributed_text": false,
+  "maximum_individual_file_bytes": 6534999,
+  "python_version": "3.12.14",
+  "platform": "Windows",
+  "pending_author_items": [
+    "Confirm ABHT data redistribution conditions before public upload",
+    "Select code license"
+  ]
+}

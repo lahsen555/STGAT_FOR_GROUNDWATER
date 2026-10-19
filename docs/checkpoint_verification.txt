@@ -1,0 +1,10 @@
+PASS: file/input/source hashes and all saved one-month metrics; 389 measured targets, 19 scored wells.
+<verification-environment>\Lib\site-packages\torch\jit\_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+PASS: optimized_h1_20261015 STGAT, all 3 seeds reloaded, maximum difference 5.68e-14 m
+PASS: optimized_h1_20261015 GRU, all 3 seeds reloaded, maximum difference 5.68e-14 m
+PASS: optimized_h1_20261015 LSTM, all 3 seeds reloaded, maximum difference 5.68e-14 m
+PASS: optimized_20261015 STGAT, all 3 seeds reloaded, maximum difference 5.68e-14 m
+PASS: optimized_20261015 GRU, all 3 seeds reloaded, maximum difference 5.68e-14 m
+PASS: optimized_20261015 LSTM, all 3 seeds reloaded, maximum difference 5.68e-14 m
+PASS: all 21 checkpoints reproduce their saved ensemble forecasts; no training or benchmark selection.

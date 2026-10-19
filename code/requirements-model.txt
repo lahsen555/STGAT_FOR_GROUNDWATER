@@ -1,0 +1,7 @@
+numpy>=1.26
+pandas>=2.0
+torch>=2.3
+torch-geometric>=2.5
+matplotlib>=3.8
+optuna>=3.6
+scipy>=1.11

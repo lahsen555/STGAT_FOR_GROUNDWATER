@@ -1,0 +1,51 @@
+{
+  "runs": {
+    "1": {
+      "trials_per_model": {
+        "GRU": 24,
+        "LSTM": 24,
+        "STGAT": 24
+      },
+      "inner_fold_fits": 216,
+      "ensemble_checkpoints": 9,
+      "original_plots": 18,
+      "extra_plots": 1,
+      "calibration_samples_by_lead": [
+        70
+      ],
+      "benchmark_measured_labels": 389,
+      "benchmark_scored_wells": 19,
+      "1580/52_benchmark_labels": 0,
+      "input_source_renderer_hashes_verified": true,
+      "interval_quantiles_and_scales_verified": true
+    },
+    "6": {
+      "trials_per_model": {
+        "GRU": 24,
+        "LSTM": 24,
+        "STGAT": 24
+      },
+      "inner_fold_fits": 216,
+      "ensemble_checkpoints": 9,
+      "original_plots": 18,
+      "extra_plots": 1,
+      "calibration_samples_by_lead": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        54
+      ],
+      "benchmark_measured_labels": 389,
+      "benchmark_scored_wells": 19,
+      "1580/52_benchmark_labels": 0,
+      "input_source_renderer_hashes_verified": true,
+      "interval_quantiles_and_scales_verified": true
+    }
+  },
+  "checks_passed": true,
+  "validation_only_horizon_selection_verified": true,
+  "combined_bundle_sha256": "2451507528f13e2142e2c668bdae54559aceeb41880d8394c87492e6ef5ea583",
+  "combined_bundle_png_svg_pairs": 39
+}

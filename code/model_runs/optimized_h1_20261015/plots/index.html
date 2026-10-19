@@ -1,0 +1,79 @@
+<!doctype html><meta charset='utf-8'><title>STGAT optimization plots</title>
+<style>body{font:16px system-ui;margin:32px;background:#f5f7fa;color:#182735}main{max-width:1400px;margin:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:24px}figure{margin:0;background:white;padding:18px;border-radius:10px}img{width:100%;height:auto}figcaption{line-height:1.5}a{color:#176ca5}</style><main>
+<h1>STGAT optimization and original notebook plots</h1>
+<p>Measured labels only. The existing benchmark was examined previously; selection uses chronological validation folds. Bands are empirically calibrated and have no exchangeability-based guarantee.</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mae_m</th>
+      <th>rmse_m</th>
+      <th>macro_r2</th>
+    </tr>
+    <tr>
+      <th>model</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Persistence</th>
+      <td>0.6192</td>
+      <td>1.0831</td>
+      <td>0.3817</td>
+    </tr>
+    <tr>
+      <th>Seasonal</th>
+      <td>1.4042</td>
+      <td>2.1716</td>
+      <td>-4.2772</td>
+    </tr>
+    <tr>
+      <th>DampedTrend</th>
+      <td>0.6285</td>
+      <td>1.0946</td>
+      <td>0.3567</td>
+    </tr>
+    <tr>
+      <th>STGAT</th>
+      <td>0.6046</td>
+      <td>1.0644</td>
+      <td>0.3924</td>
+    </tr>
+    <tr>
+      <th>GRU</th>
+      <td>0.6001</td>
+      <td>1.0947</td>
+      <td>0.3779</td>
+    </tr>
+    <tr>
+      <th>LSTM</th>
+      <td>0.6272</td>
+      <td>1.0786</td>
+      <td>0.2970</td>
+    </tr>
+  </tbody>
+</table>
+<div class='grid'>
+<figure><a href='hyperparameter_importance.png'><img src='hyperparameter_importance.png' loading='lazy'></a><figcaption><b>Hyperparameter Importance</b><br>CV parameter importance; association within the searched space.<br><a href='hyperparameter_importance.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='optimization_history.png'><img src='optimization_history.png' loading='lazy'></a><figcaption><b>Optimization History</b><br>Three chronological folds; lower ratios are better.<br><a href='optimization_history.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='training_curve.png'><img src='training_curve.png' loading='lazy'></a><figcaption><b>Training Curve</b><br>First ensemble seed; circles mark minimum validation ratio; losses may differ, validation skill is comparable.<br><a href='training_curve.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='model_metrics.png'><img src='model_metrics.png' loading='lazy'></a><figcaption><b>Model Metrics</b><br>Different metrics use separate axes; R² is averaged within wells.<br><a href='model_metrics.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='metrics_comparison.png'><img src='metrics_comparison.png' loading='lazy'></a><figcaption><b>Metrics Comparison</b><br>All models score the same measured one-month targets.<br><a href='metrics_comparison.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='rank_mae.png'><img src='rank_mae.png' loading='lazy'></a><figcaption><b>Rank Mae</b><br>MAE ranks · 1 = best · existing benchmark; blank rows have no measured targets.<br><a href='rank_mae.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='rank_rmse.png'><img src='rank_rmse.png' loading='lazy'></a><figcaption><b>Rank Rmse</b><br>RMSE ranks · 1 = best · existing benchmark; blank rows have no measured targets.<br><a href='rank_rmse.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='rank_r2.png'><img src='rank_r2.png' loading='lazy'></a><figcaption><b>Rank R2</b><br>R² ranks · 1 = best · existing benchmark; blank rows have no measured targets.<br><a href='rank_r2.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='r2heatmap.png'><img src='r2heatmap.png' loading='lazy'></a><figcaption><b>R2Heatmap</b><br>Per-well R² · colour clipped to [−1, 1], labels exact; blank rows have no measured targets.<br><a href='r2heatmap.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='predictions_comparison.png'><img src='predictions_comparison.png' loading='lazy'></a><figcaption><b>Predictions Comparison</b><br>All wells; measured values only; monthly dates retained.<br><a href='predictions_comparison.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='selected_wells_comparison.png'><img src='selected_wells_comparison.png' loading='lazy'></a><figcaption><b>Selected Wells Comparison</b><br>Original selected well IDs; actual dated measurements.<br><a href='selected_wells_comparison.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='rmse_spatial_distribution.png'><img src='rmse_spatial_distribution.png' loading='lazy'></a><figcaption><b>Rmse Spatial Distribution</b><br>Geographic error map; no network tiles required; unscored wells marked.<br><a href='rmse_spatial_distribution.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='density_obs_vs_pred.png'><img src='density_obs_vs_pred.png' loading='lazy'></a><figcaption><b>Density Obs Vs Pred</b><br>Measured targets only; no pooled R² claim.<br><a href='density_obs_vs_pred.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='residuals_distribution.png'><img src='residuals_distribution.png' loading='lazy'></a><figcaption><b>Residuals Distribution</b><br>Residuals exclude missing and imputed labels.<br><a href='residuals_distribution.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='feature_importance.png'><img src='feature_importance.png' loading='lazy'></a><figcaption><b>Feature Importance</b><br>Values/masks/coverage permuted jointly; groundwater anchor included in its group; diagnostic, not causal.<br><a href='feature_importance.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='uncertainty_well.png'><img src='uncertainty_well.png' loading='lazy'></a><figcaption><b>Uncertainty Well</b><br>Held-out March-October 2017 interval calibration; temporal/spatial dependence limits guarantees.<br><a href='uncertainty_well.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='uncertainty_vs_error.png'><img src='uncertainty_vs_error.png' loading='lazy'></a><figcaption><b>Uncertainty Vs Error</b><br>Empirical coverage on measured benchmark targets; correlation is descriptive, not a calibration proof.<br><a href='uncertainty_vs_error.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='avg_uncertainty_per_well.png'><img src='avg_uncertainty_per_well.png' loading='lazy'></a><figcaption><b>Avg Uncertainty Per Well</b><br>Calibrated interval widths; unscored wells remain visible.<br><a href='avg_uncertainty_per_well.svg'>Vector SVG</a></figcaption></figure>
+<figure><a href='horizon_comparison.png'><img src='horizon_comparison.png' loading='lazy'></a><figcaption><b>Horizon Comparison</b><br>Like-for-like baseline comparison at lead(s) 1 months.<br><a href='horizon_comparison.svg'>Vector SVG</a></figcaption></figure>
+</div></main>

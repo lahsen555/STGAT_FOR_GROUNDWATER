@@ -1,0 +1,4 @@
+-r code/requirements-model.txt
+-r code/requirements-interpolation.txt
+# The manuscript figure script uses include_groups=False.
+pandas>=2.2

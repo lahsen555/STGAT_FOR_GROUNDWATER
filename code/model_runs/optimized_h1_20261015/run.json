@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "benchmark_previously_examined": true,
+  "benchmark_used_for_selection": false,
+  "history_policy": "observed_only_with_causal_summaries",
+  "folds": [
+    [
+      "2012-08-01",
+      "2013-08-01"
+    ],
+    [
+      "2013-08-01",
+      "2014-08-01"
+    ],
+    [
+      "2014-08-01",
+      "2015-08-01"
+    ]
+  ],
+  "training_end": "2015-08-01",
+  "selection_end": "2017-02-01",
+  "calibration_end": "2017-10-01",
+  "benchmark_start": "2017-11-01",
+  "leads_reported": [
+    1
+  ],
+  "forecast_horizon": 1,
+  "trials_per_model": 24,
+  "ensemble_seeds": [
+    17,
+    42,
+    123
+  ],
+  "input_sha256": {
+    "data/gwl_and_features_advanced_sumed.csv": "44c6164d17b07c88e52f2677a3fcc90311c50a50f83094c7015e15f384d36534",
+    "data/wells_meta.csv": "03dff34d7f67bd5b8b157b055bd5ad6a78b2b1554897a453865591d02d082f4f"
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.1",
+    "torch": "2.14.1+cpu",
+    "torch-geometric": "2.8.1",
+    "optuna": "5.0.0",
+    "matplotlib": "3.11.2",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "optimize_stgat.py": "122047a9e118bb3c0037e62b5ab410d3b421ca4f00f2bf8a31e7954dbbafef7a",
+    "stgat_plots.py": "8ff02438a2986bee08e486cca7a7ca25d9981aaa6a9b34760337f464bb3e29bf",
+    "stgnn_data.py": "426ab40b1eb4885921e1c42a8d6f8821cd61af78791f8116efeee88a9c697b9d",
+    "STGNN_model.py": "2cafec6e9b800874e4c0cd59d17b96b32baaa536643aeb46671a84e9cd7a7a74"
+  },
+  "input_path": "data/gwl_and_features_advanced_sumed.csv",
+  "metadata_path": "data/wells_meta.csv",
+  "provenance": {
+    "imputation_summary_verified": true,
+    "merge_sources_verified": true,
+    "imputer_fit_end": "2015-08-01"
+  },
+  "models": {
+    "STGAT": {
+      "config": {
+        "lookback": 24,
+        "hidden": 32,
+        "layers": 1,
+        "heads": 4,
+        "dropout": 0.25,
+        "embedding": 2,
+        "k": 7,
+        "lr": 0.0012506682684397916,
+        "weight_decay": 8.275916714165978e-05,
+        "batch_size": 8,
+        "loss": "huber",
+        "feature_set": "core",
+        "trend_window": 6,
+        "trend_gain": 0.0,
+        "residual_gain": 1.0,
+        "graph_gate": 0.5
+      },
+      "cv_skill_ratio": 0.917008745427236
+    },
+    "GRU": {
+      "config": {
+        "lookback": 24,
+        "hidden": 24,
+        "layers": 2,
+        "heads": 2,
+        "dropout": 0.1,
+        "embedding": 8,
+        "k": 4,
+        "lr": 0.0016552092728571478,
+        "weight_decay": 0.0018199667974265065,
+        "batch_size": 8,
+        "loss": "mse",
+        "feature_set": "expanded",
+        "trend_window": 6,
+        "trend_gain": 0.25,
+        "residual_gain": 0.1,
+        "graph_gate": 0.2
+      },
+      "cv_skill_ratio": 0.9186059012434363
+    },
+    "LSTM": {
+      "config": {
+        "lookback": 12,
+        "hidden": 24,
+        "layers": 2,
+        "heads": 2,
+        "dropout": 0.25,
+        "embedding": 8,
+        "k": 4,
+        "lr": 0.0022641566153270604,
+        "weight_decay": 0.0009380128358757346,
+        "batch_size": 8,
+        "loss": "l1",
+        "feature_set": "core",
+        "trend_window": 12,
+        "trend_gain": 0.0,
+        "residual_gain": 0.1,
+        "graph_gate": 0.2
+      },
+      "cv_skill_ratio": 0.9183140343736292
+    }
+  },
+  "trend_baseline": {
+    "trend_window": 24.0,
+    "trend_gain": 0.5,
+    "cv_ratio": 0.9918753424796289
+  },
+  "selection_frozen": true,
+  "interval_calibration": {
+    "nominal_coverage": 0.9,
+    "samples_by_lead": [
+      70
+    ],
+    "normalized_quantiles": [
+      3.1075280135316383
+    ],
+    "period": "March-October 2017; excluded from hyperparameter and checkpoint selection",
+    "limitation": "Time/spatial dependence prevents an exchangeability-based coverage guarantee; assess empirical coverage."
+  }
+}

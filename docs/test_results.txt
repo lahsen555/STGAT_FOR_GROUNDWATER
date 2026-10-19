@@ -1,0 +1,54 @@
+<verification-environment>\Lib\site-packages\torch\jit\_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+test_absent_rows_are_returned_and_shuffled_input_aligns (test_interpolation.GapFillTests.test_absent_rows_are_returned_and_shuffled_input_aligns) ... ok
+test_different_wells_do_not_share_values (test_interpolation.GapFillTests.test_different_wells_do_not_share_values) ... ok
+test_failed_and_nonconverged_fits_are_visible (test_interpolation.GapFillTests.test_failed_and_nonconverged_fits_are_visible) ... ok
+test_future_holdout_changes_cannot_change_earlier_fills (test_interpolation.GapFillTests.test_future_holdout_changes_cannot_change_earlier_fills) ... ok
+test_insufficient_training_keeps_observations (test_interpolation.GapFillTests.test_insufficient_training_keeps_observations) ... ok
+test_invalid_monthly_keys_and_levels_are_rejected (test_interpolation.GapFillTests.test_invalid_monthly_keys_and_levels_are_rejected) ... ok
+test_leading_and_long_gaps_remain_flagged (test_interpolation.GapFillTests.test_leading_and_long_gaps_remain_flagged) ... ok
+test_np_column_is_accepted_without_replacing_measurements (test_interpolation.GapFillTests.test_np_column_is_accepted_without_replacing_measurements) ... ok
+test_observations_preserved_and_masks_correct (test_interpolation.GapFillTests.test_observations_preserved_and_masks_correct) ... ok
+test_ambiguous_names_collisions_and_nonmonthly_dates_are_rejected (test_merging.MergeTests.test_ambiguous_names_collisions_and_nonmonthly_dates_are_rejected) ... ok
+test_extra_feature_wells_and_dates_cannot_add_target_rows (test_merging.MergeTests.test_extra_feature_wells_and_dates_cannot_add_target_rows) ... ok
+test_future_changes_cannot_change_earlier_features (test_merging.MergeTests.test_future_changes_cannot_change_earlier_features) ... ok
+test_groundwater_panel_and_provenance_are_preserved (test_merging.MergeTests.test_groundwater_panel_and_provenance_are_preserved) ... ok
+test_invalid_quality_flags_and_changed_observations_are_rejected (test_merging.MergeTests.test_invalid_quality_flags_and_changed_observations_are_rejected) ... ok
+test_missing_feature_values_are_retained_and_reported (test_merging.MergeTests.test_missing_feature_values_are_retained_and_reported) ... ok
+test_missing_history_month_is_not_skipped_by_rolling (test_merging.MergeTests.test_missing_history_month_is_not_skipped_by_rolling) ... ok
+test_ndvi_fallback_keeps_raw_values_and_marks_source (test_merging.MergeTests.test_ndvi_fallback_keeps_raw_values_and_marks_source) ... ok
+test_rolling_uses_preceding_history_and_stays_within_well (test_merging.MergeTests.test_rolling_uses_preceding_history_and_stays_within_well) ... ok
+test_shuffled_input_has_identical_results (test_merging.MergeTests.test_shuffled_input_has_identical_results) ... ok
+test_unmatched_keys_and_duplicate_keys_are_rejected (test_merging.MergeTests.test_unmatched_keys_and_duplicate_keys_are_rejected) ... ok
+test_relative_merge_audit_works_outside_the_repository_cwd (test_release_paths.ReleasePathTests.test_relative_merge_audit_works_outside_the_repository_cwd) ... ok
+test_calibration_uses_late_measurements_without_crossing_into_benchmark (test_stgat_optimization.OptimizationTests.test_calibration_uses_late_measurements_without_crossing_into_benchmark) ... ok
+test_compact_singleton_shapes_and_zero_residual_reference (test_stgat_optimization.OptimizationTests.test_compact_singleton_shapes_and_zero_residual_reference) ... ok
+test_cv_inputs_ignore_precomputed_interpolation_values (test_stgat_optimization.OptimizationTests.test_cv_inputs_ignore_precomputed_interpolation_values) ... ok
+test_direct_horizon_windows_stay_within_fold (test_stgat_optimization.OptimizationTests.test_direct_horizon_windows_stay_within_fold) ... ok
+test_features_and_statistics_do_not_learn_later_fold_measurements (test_stgat_optimization.OptimizationTests.test_features_and_statistics_do_not_learn_later_fold_measurements) ... ok
+test_interval_quantiles_use_only_provided_calibration_labels (test_stgat_optimization.OptimizationTests.test_interval_quantiles_use_only_provided_calibration_labels) ... ok
+test_interval_scale_has_finite_training_only_fallback (test_stgat_optimization.OptimizationTests.test_interval_scale_has_finite_training_only_fallback) ... ok
+test_metrics_mask_missing_labels_at_each_horizon (test_stgat_optimization.OptimizationTests.test_metrics_mask_missing_labels_at_each_horizon) ... ok
+test_robust_trends_use_only_past_measurements (test_stgat_optimization.OptimizationTests.test_robust_trends_use_only_past_measurements) ... ok
+test_tiny_optimization_training_and_joint_importance (test_stgat_optimization.OptimizationTests.test_tiny_optimization_training_and_joint_importance) ... ok
+test_bad_keys_flags_and_missing_coordinates_fail (test_stgnn_data.DataTests.test_bad_keys_flags_and_missing_coordinates_fail) ... ok
+test_geographic_graph_uses_km_symmetry_and_handles_single_node (test_stgnn_data.DataTests.test_geographic_graph_uses_km_symmetry_and_handles_single_node) ... ok
+test_holdout_changes_cannot_change_training_stats_or_earlier_inputs (test_stgnn_data.DataTests.test_holdout_changes_cannot_change_training_stats_or_earlier_inputs) ... ok
+test_imputation_cutoff_aligns_default_and_rejects_earlier_model_split (test_stgnn_data.DataTests.test_imputation_cutoff_aligns_default_and_rejects_earlier_model_split) ... ok
+test_missing_calendar_row_is_reinserted_with_false_mask (test_stgnn_data.DataTests.test_missing_calendar_row_is_reinserted_with_false_mask) ... ok
+test_missing_labels_masked_and_inputs_finite_with_availability (test_stgnn_data.DataTests.test_missing_labels_masked_and_inputs_finite_with_availability) ... ok
+test_multihorizon_targets_never_cross_split_boundaries (test_stgnn_data.DataTests.test_multihorizon_targets_never_cross_split_boundaries) ... ok
+test_shuffled_keys_and_metadata_keep_identical_node_order (test_stgnn_data.DataTests.test_shuffled_keys_and_metadata_keep_identical_node_order) ... ok
+test_well_with_no_test_labels_keeps_training_and_graph_node (test_stgnn_data.DataTests.test_well_with_no_test_labels_keeps_training_and_graph_node) ... ok
+test_epoch_loss_weights_measured_points_and_handles_last_batch (test_stgnn_model.ModelTests.test_epoch_loss_weights_measured_points_and_handles_last_batch) ... ok
+test_expanded_edges_keep_graphs_isolated_and_attributes_aligned (test_stgnn_model.ModelTests.test_expanded_edges_keep_graphs_isolated_and_attributes_aligned) ... ok
+test_masked_loss_ignores_missing_nan_labels_and_has_zero_gradient_there (test_stgnn_model.ModelTests.test_masked_loss_ignores_missing_nan_labels_and_has_zero_gradient_there) ... ok
+test_metrics_include_only_measured_labels_and_keep_unscored_well (test_stgnn_model.ModelTests.test_metrics_include_only_measured_labels_and_keep_unscored_well) ... ok
+test_proximity_attributes_reach_attention_and_change_messages (test_stgnn_model.ModelTests.test_proximity_attributes_reach_attention_and_change_messages) ... ok
+test_singleton_batch_node_and_multihorizon_shapes (test_stgnn_model.ModelTests.test_singleton_batch_node_and_multihorizon_shapes) ... ok
+test_tiny_training_checkpoint_reload_and_dated_horizon_predictions (test_stgnn_model.ModelTests.test_tiny_training_checkpoint_reload_and_dated_horizon_predictions) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 8.914s
+
+OK

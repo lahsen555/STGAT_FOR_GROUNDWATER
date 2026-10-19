@@ -1,0 +1,63 @@
+{
+  "rule": "Lowest pooled one-month measured-label validation MAE; exact ties prefer H=1.",
+  "selection_period": "September 2015-February 2017",
+  "models": {
+    "Persistence": {
+      "training_horizon": 1,
+      "validation_mae_m": 0.6994964028776978,
+      "candidate_validation_mae_m": {
+        "1": 0.6994964028776978,
+        "6": 0.6994964028776978
+      },
+      "run": "code/model_runs/optimized_h1_20261015"
+    },
+    "Seasonal": {
+      "training_horizon": 1,
+      "validation_mae_m": 2.642841726618702,
+      "candidate_validation_mae_m": {
+        "1": 2.642841726618702,
+        "6": 2.642841726618702
+      },
+      "run": "code/model_runs/optimized_h1_20261015"
+    },
+    "DampedTrend": {
+      "training_horizon": 6,
+      "validation_mae_m": 0.6979156722415956,
+      "candidate_validation_mae_m": {
+        "1": 0.7016283051140626,
+        "6": 0.6979156722415956
+      },
+      "run": "code/model_runs/optimized_20261015"
+    },
+    "STGAT": {
+      "training_horizon": 1,
+      "validation_mae_m": 0.6537709662641361,
+      "candidate_validation_mae_m": {
+        "1": 0.6537709662641361,
+        "6": 0.658828977853588
+      },
+      "run": "code/model_runs/optimized_h1_20261015"
+    },
+    "GRU": {
+      "training_horizon": 6,
+      "validation_mae_m": 0.6726188420415149,
+      "candidate_validation_mae_m": {
+        "1": 0.6840198109797758,
+        "6": 0.6726188420415149
+      },
+      "run": "code/model_runs/optimized_20261015"
+    },
+    "LSTM": {
+      "training_horizon": 1,
+      "validation_mae_m": 0.6584677508581085,
+      "candidate_validation_mae_m": {
+        "1": 0.6584677508581085,
+        "6": 0.6711201418252233
+      },
+      "run": "code/model_runs/optimized_h1_20261015"
+    }
+  },
+  "benchmark_previously_examined": true,
+  "selection_uses_benchmark": false,
+  "protocol_sha256": "87cb22bd0826e2100f633db252cb2a7c433def876696a67211d785fc0a232962"
+}

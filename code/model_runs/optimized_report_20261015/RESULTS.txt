@@ -1,0 +1,80 @@
+STGAT OPTIMIZATION RESULTS
+
+One-month recommended variants (chosen on validation only):
+      model  training_horizon  validation_mae_m   n  scored_wells   mae_m  rmse_m   bias_m  macro_r2  mae_skill_vs_persistence
+Persistence                 1           0.69950 389            19 0.61915 1.08307  0.06645   0.38173                   0.00000
+   Seasonal                 1           2.64284 389            19 1.40422 2.17162  0.69692  -4.27718                  -1.26797
+DampedTrend                 6           0.69792 389            19 0.62005 1.08442  0.05726   0.38038                  -0.00145
+      STGAT                 1           0.65377 389            19 0.60465 1.06443 -0.01869   0.39239                   0.02342
+        GRU                 6           0.67262 389            19 0.61041 1.07537 -0.00833   0.38368                   0.01411
+       LSTM                 1           0.65847 389            19 0.62724 1.07860 -0.08164   0.29697                  -0.01306
+
+Across all tested neural variants, GRU trained for H=1 has the lowest benchmark MAE (0.600 m), with RMSE 1.095 m. The validation-selected STGAT has MAE 0.605 m and RMSE 1.064 m. This observed ranking does not change the predefined validation selections.
+
+All tested neural variants:
+model  training_horizon  selected  validation_mae_m   n  scored_wells   mae_m  rmse_m   bias_m  macro_r2
+STGAT                 1      True           0.65377 389            19 0.60465 1.06443 -0.01869   0.39239
+STGAT                 6     False           0.65883 389            19 0.60530 1.06222  0.05700   0.39504
+  GRU                 1     False           0.68402 389            19 0.60015 1.09469  0.03938   0.37789
+  GRU                 6      True           0.67262 389            19 0.61041 1.07537 -0.00833   0.38368
+ LSTM                 1      True           0.65847 389            19 0.62724 1.07860 -0.08164   0.29697
+ LSTM                 6     False           0.67112 389            19 0.60943 1.07768  0.00539   0.38946
+
+Separate six-month model; common forecast origins:
+      model  lead_months   n   mae_m  rmse_m  macro_r2
+Persistence            1 363 0.63030 1.10555   0.36616
+   Seasonal            1 363 1.41901 2.21904  -5.10716
+      STGAT            1 363 0.61438 1.08354   0.38155
+        GRU            1 363 0.62034 1.09733   0.36880
+       LSTM            1 363 0.61965 1.09972   0.37545
+DampedTrend            1 363 0.63130 1.10706   0.36455
+Persistence            3 337 1.26866 2.03427  -0.75019
+   Seasonal            3 337 1.53484 2.20582  -2.04251
+      STGAT            3 337 1.25051 1.97585  -0.94023
+        GRU            3 337 1.24451 2.02971  -0.76314
+       LSTM            3 337 1.24022 2.02705  -0.73727
+DampedTrend            3 337 1.26739 2.03894  -0.76152
+Persistence            6 300 1.53183 2.39997  -3.02774
+   Seasonal            6 300 1.60117 2.19881  -4.29190
+      STGAT            6 300 1.52540 2.41249  -3.76004
+        GRU            6 300 1.46768 2.32282  -2.83562
+       LSTM            6 300 1.46006 2.32072  -2.75910
+DampedTrend            6 300 1.51133 2.36976  -2.91385
+
+All 18 original plot categories are available in each experiment, plus a horizon comparison.
+Missing/imputed groundwater labels never enter training losses, selection scores or benchmark metrics.
+1580/52 retains its graph node and forecasts; it has no measured benchmark targets and is unscored.
+The compact STGAT uses a temporal GRU, gated GATv2 spatial correction, persistence/trend skip, and three fixed seeds.
+Environmental values have training-only scaling, availability/coverage channels, and no future feature inputs.
+Interpolation files were preserved. This experiment uses measured history with causal summaries to keep early CV folds honest.
+
+Limits:
+The existing benchmark had already been examined in the earlier review. These are exploratory research results, not a new untouched test.
+A small gain does not establish a stable advantage across aquifers or new periods. Compare both MAE and RMSE, per-well scores, and longer leads.
+Nominal 90% interval bands use separate March-October 2017 calibration; assess observed coverage rather than assuming 90%.
+Prediction band width is fixed per well/lead from training error scale and held-out residual quantiles; it is not a learned dynamic variance.
+Grouped permutation is a validation-only diagnostic; parameter importance is conditional on the searched space.
+All 45 regression tests passed before the optimization runs. Checkpoint reload predictions were verified for all ensemble members.
+Training sources are preserved in each run's source_snapshot; plot_source_snapshot.py records the exact renderer, including formatting updates.
+The lookback is the recurrent input window; causal slope/change summaries can retain information from up to 24 previous months.
+Horizon accuracy uses common forecast origins; interval coverage uses every eligible benchmark origin separately per lead.
+Calibration uses all eligible origins per lead and excludes every target after October 2017. The reserved period has measurements only in July-October 2017.
+The additional calibration boundary regression passed with the full focused 10-test optimization suite after this correction.
+
+H=1 interval coverage on measured benchmark labels:
+ lead_months   n  empirical_coverage  mean_half_width_m
+           1 389             0.94602            2.38019
+Calibration sample counts by lead: [70]
+
+H=6 interval coverage on measured benchmark labels:
+ lead_months   n  empirical_coverage  mean_half_width_m
+           1 389             0.94087            2.19865
+           2 371             0.91914            2.90125
+           3 353             0.95184            4.20420
+           4 335             0.97910            6.31445
+           5 318             0.98428            6.45051
+           6 300             0.98667            6.97008
+Calibration sample counts by lead: [70, 70, 70, 70, 70, 54]
+
+Previous reviewed STGAT one-month MAE: 0.747753 m; RMSE: 1.173039 m.
+Recommended STGAT one-month MAE: 0.604649 m; RMSE: 1.064433 m.

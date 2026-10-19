@@ -1,0 +1,3 @@
+# Keep research data, source snapshots and file-manifest checksums byte-exact
+# across Windows, macOS and Linux; disable automatic newline conversion.
+* -text

@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "benchmark_previously_examined": true,
+  "benchmark_used_for_selection": false,
+  "history_policy": "observed_only_with_causal_summaries",
+  "folds": [
+    [
+      "2012-08-01",
+      "2013-08-01"
+    ],
+    [
+      "2013-08-01",
+      "2014-08-01"
+    ],
+    [
+      "2014-08-01",
+      "2015-08-01"
+    ]
+  ],
+  "training_end": "2015-08-01",
+  "selection_end": "2017-02-01",
+  "calibration_end": "2017-10-01",
+  "benchmark_start": "2017-11-01",
+  "leads_reported": [
+    1,
+    3,
+    6
+  ],
+  "forecast_horizon": 6,
+  "trials_per_model": 24,
+  "ensemble_seeds": [
+    17,
+    42,
+    123
+  ],
+  "input_sha256": {
+    "data/gwl_and_features_advanced_sumed.csv": "44c6164d17b07c88e52f2677a3fcc90311c50a50f83094c7015e15f384d36534",
+    "data/wells_meta.csv": "03dff34d7f67bd5b8b157b055bd5ad6a78b2b1554897a453865591d02d082f4f"
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.1",
+    "torch": "2.14.1+cpu",
+    "torch-geometric": "2.8.1",
+    "optuna": "5.0.0",
+    "matplotlib": "3.11.2",
+    "scipy": "1.18.1"
+  },
+  "source_sha256": {
+    "optimize_stgat.py": "122047a9e118bb3c0037e62b5ab410d3b421ca4f00f2bf8a31e7954dbbafef7a",
+    "stgat_plots.py": "8ff02438a2986bee08e486cca7a7ca25d9981aaa6a9b34760337f464bb3e29bf",
+    "stgnn_data.py": "426ab40b1eb4885921e1c42a8d6f8821cd61af78791f8116efeee88a9c697b9d",
+    "STGNN_model.py": "2cafec6e9b800874e4c0cd59d17b96b32baaa536643aeb46671a84e9cd7a7a74"
+  },
+  "input_path": "data/gwl_and_features_advanced_sumed.csv",
+  "metadata_path": "data/wells_meta.csv",
+  "provenance": {
+    "imputation_summary_verified": true,
+    "merge_sources_verified": true,
+    "imputer_fit_end": "2015-08-01"
+  },
+  "models": {
+    "STGAT": {
+      "config": {
+        "lookback": 6,
+        "hidden": 32,
+        "layers": 1,
+        "heads": 2,
+        "dropout": 0.25,
+        "embedding": 2,
+        "k": 2,
+        "lr": 0.0024553576642141104,
+        "weight_decay": 1.624152202729604e-05,
+        "batch_size": 16,
+        "loss": "l1",
+        "feature_set": "expanded",
+        "trend_window": 24,
+        "trend_gain": 0.0,
+        "residual_gain": 0.25,
+        "graph_gate": 0.5
+      },
+      "cv_skill_ratio": 0.9183597082457339
+    },
+    "GRU": {
+      "config": {
+        "lookback": 6,
+        "hidden": 32,
+        "layers": 2,
+        "heads": 2,
+        "dropout": 0.0,
+        "embedding": 4,
+        "k": 4,
+        "lr": 0.0036338439706752775,
+        "weight_decay": 0.003741497875028202,
+        "batch_size": 32,
+        "loss": "huber",
+        "feature_set": "core",
+        "trend_window": 24,
+        "trend_gain": 0.25,
+        "residual_gain": 0.25,
+        "graph_gate": 0.2
+      },
+      "cv_skill_ratio": 0.9385229630815254
+    },
+    "LSTM": {
+      "config": {
+        "lookback": 12,
+        "hidden": 32,
+        "layers": 1,
+        "heads": 2,
+        "dropout": 0.0,
+        "embedding": 4,
+        "k": 4,
+        "lr": 0.004418446076324021,
+        "weight_decay": 0.0012797457022434228,
+        "batch_size": 32,
+        "loss": "huber",
+        "feature_set": "core",
+        "trend_window": 24,
+        "trend_gain": 0.25,
+        "residual_gain": 0.25,
+        "graph_gate": 0.2
+      },
+      "cv_skill_ratio": 0.9322205743196749
+    }
+  },
+  "trend_baseline": {
+    "trend_window": 24.0,
+    "trend_gain": 0.1,
+    "cv_ratio": 0.9997887230390731
+  },
+  "selection_frozen": true,
+  "interval_calibration": {
+    "nominal_coverage": 0.9,
+    "samples_by_lead": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      54
+    ],
+    "normalized_quantiles": [
+      2.852322580081346,
+      2.443207250908104,
+      2.763375799597095,
+      3.6059430071936207,
+      3.2996573053917864,
+      3.329687870329069
+    ],
+    "period": "March-October 2017; excluded from hyperparameter and checkpoint selection",
+    "origin_policy": "Every eligible origin per lead, with all calibration targets inside the reserved period",
+    "limitation": "Time/spatial dependence prevents an exchangeability-based coverage guarantee; assess empirical coverage."
+  },
+  "postprocessing": {
+    "recovered_from_frozen_checkpoints": true,
+    "training_and_point_predictions_unchanged": true,
+    "source_sha256": {
+      "postprocessing_source_snapshot.py": "f6f631576d81b2a47ca4953fdea93d8592bd16717e4cc3f6d3a3bf18f7955a2a",
+      "postprocessing_optimizer_snapshot.py": "1fb5d0f132ff559a9f55d9043bc84b41b098fae147aa846d051d86a0378b83d9"
+    },
+    "reason": "Calibration originally required shared origins, including months with no measured labels. Each lead now uses all eligible held-out calibration targets."
+  }
+}

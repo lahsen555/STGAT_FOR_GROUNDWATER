@@ -1,0 +1,6 @@
+feature,training_coverage,retained
+ET_MODIS_mm,0.95,True
+LST_C,0.298125,False
+NDVI_MODIS,1.0,True
+Runoff_Total_mm,1.0,True
+precipitation_mm,1.0,True

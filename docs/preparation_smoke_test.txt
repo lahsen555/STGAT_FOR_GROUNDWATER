@@ -1,0 +1,11 @@
+<verification-environment>\Lib\site-packages\torch\jit\_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+20 wells; train through 2015-08-01; validation through 2017-10-01; test starts 2017-11-01
+         feature  training_coverage  retained
+     ET_MODIS_mm           0.950000      True
+           LST_C           0.298125     False
+      NDVI_MODIS           1.000000      True
+ Runoff_Total_mm           1.000000      True
+precipitation_mm           1.000000      True
+Measured labels: {'test': 389, 'train': 862, 'val': 348}
+Device: cpu; output: outputs\preflight

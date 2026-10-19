@@ -1,0 +1,199 @@
+[
+  {
+    "file": "final_filled.csv",
+    "rows": 2660,
+    "columns": [
+      "well_id",
+      "date",
+      "level",
+      "level_filled",
+      "is_observed",
+      "is_imputed",
+      "imputation_method",
+      "months_since_observation"
+    ],
+    "sha256": "00315cd8ff17dc14f1be35b4d10c34c4143f522b32db172279ee08917f07aca5",
+    "well_ids": 20,
+    "first_month": "2009-01-01",
+    "last_month": "2020-01-01"
+  },
+  {
+    "file": "final_filled_summary.csv",
+    "rows": 20,
+    "columns": [
+      "well_id",
+      "months",
+      "observed",
+      "missing_original",
+      "missing_fraction",
+      "longest_gap_months",
+      "imputed",
+      "unfilled",
+      "training_observed",
+      "train_end"
+    ],
+    "sha256": "6b693bc1dc22c43eb4b1b9f6abd2875403325cbe647c798fb662d2b60851239c",
+    "well_ids": 20
+  },
+  {
+    "file": "gwl.csv",
+    "rows": 2660,
+    "columns": [
+      "well_id",
+      "date",
+      "NP (m)"
+    ],
+    "sha256": "33044a46640a8da71686dac6a100c6f679027ede235c4396ed05a837f392f2de",
+    "well_ids": 20,
+    "first_month": "2009-01-01",
+    "last_month": "2020-01-01"
+  },
+  {
+    "file": "gwl_and_features_advanced_sumed.csv",
+    "rows": 2660,
+    "columns": [
+      "well_id",
+      "date",
+      "level",
+      "level_filled",
+      "is_observed",
+      "is_imputed",
+      "imputation_method",
+      "months_since_observation",
+      "DEF_mm",
+      "ET_MODIS_mm",
+      "ET_MODIS_mm_coverage",
+      "Elevation_m",
+      "LST_C",
+      "LST_C_coverage",
+      "Landsat_scene_count",
+      "NDVI_Landsat",
+      "NDVI_MODIS",
+      "NDVI_MODIS_coverage",
+      "PDSI",
+      "Runoff_SubSurface_mm",
+      "Runoff_Total_mm",
+      "Slope_deg",
+      "Snowfall_mm",
+      "Snowmelt_mm",
+      "SoilMoisture_kgm2",
+      "SoilTemp_K",
+      "TotalEvaporation_mm",
+      "export_protocol",
+      "precipitation_mm",
+      "feature_row_available",
+      "NDVI_combined",
+      "NDVI_source",
+      "precipitation_sum_2m_mm",
+      "Snowfall_sum_12m_mm",
+      "ET_MODIS_sum_12m_mm",
+      "NDVI_MODIS_mean_12m",
+      "LST_mean_12m_C",
+      "Runoff_SubSurface_sum_12m_mm"
+    ],
+    "sha256": "44c6164d17b07c88e52f2677a3fcc90311c50a50f83094c7015e15f384d36534",
+    "well_ids": 20,
+    "first_month": "2009-01-01",
+    "last_month": "2020-01-01"
+  },
+  {
+    "file": "gwl_and_features_advanced_sumed_missingness.csv",
+    "rows": 630,
+    "columns": [
+      "well_id",
+      "column",
+      "missing",
+      "rows",
+      "missing_fraction"
+    ],
+    "sha256": "b5ce0ecc7fa762689980d85d6c2789f0d24ec5344814d17686e72276f8d16204",
+    "well_ids": 21
+  },
+  {
+    "file": "gwl_data.csv",
+    "rows": 2128,
+    "columns": [
+      "well_id",
+      "date",
+      "NP (m)"
+    ],
+    "sha256": "2d451925164ab11a01dcf7d7caf92fe13940d144547740f090144ab64dcbc66d",
+    "well_ids": 16,
+    "first_month": "2009-01-01",
+    "last_month": "2020-01-01"
+  },
+  {
+    "file": "Haouz_features_corrected_v1.csv",
+    "rows": 4466,
+    "columns": [
+      "system:index",
+      "DEF_mm",
+      "ET_MODIS_mm",
+      "ET_MODIS_mm_coverage",
+      "Elevation_m",
+      "LST_C",
+      "LST_C_coverage",
+      "Landsat_scene_count",
+      "NDVI_Landsat",
+      "NDVI_MODIS",
+      "NDVI_MODIS_coverage",
+      "PDSI",
+      "Runoff_SubSurface_mm",
+      "Runoff_Total_mm",
+      "Slope_deg",
+      "Snowfall_mm",
+      "Snowmelt_mm",
+      "SoilMoisture_kgm2",
+      "SoilTemp_K",
+      "TotalEvaporation_mm",
+      "Well_ID",
+      "date",
+      "export_protocol",
+      "precipitation_mm",
+      ".geo"
+    ],
+    "sha256": "64da0ce8487b35cd99694f86f0938772bdf21eee59e4f41bd21000d1b1606a98",
+    "well_ids": 22,
+    "first_month": "2006-01-01",
+    "last_month": "2022-11-01"
+  },
+  {
+    "file": "monthly_observations_all_wells.csv",
+    "rows": 11521,
+    "columns": [
+      "well_id",
+      "date",
+      "month",
+      "NP (m)",
+      "Prof",
+      "Z",
+      "is_observed",
+      "quality_status",
+      "chosen_source",
+      "workbook_head",
+      "csv_head",
+      "n_measurements",
+      "n_source_reports",
+      "first_measurement_date",
+      "last_measurement_date",
+      "available_after_month_end",
+      "record_ids"
+    ],
+    "sha256": "1fbe5233a482d7fd0aeb566e10c3286074b44631430cad236faa61c3a0f5f126",
+    "well_ids": 41,
+    "first_month": "2001-02-01",
+    "last_month": "2024-06-01"
+  },
+  {
+    "file": "wells_meta.csv",
+    "rows": 22,
+    "columns": [
+      "Well_ID",
+      "longitude",
+      "latitude",
+      "Trendy"
+    ],
+    "sha256": "03dff34d7f67bd5b8b157b055bd5ad6a78b2b1554897a453865591d02d082f4f",
+    "well_ids": 22
+  }
+]

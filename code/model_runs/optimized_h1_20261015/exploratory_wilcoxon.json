@@ -1,0 +1,6 @@
+{
+  "paired_wells": 19,
+  "statistic": 75.0,
+  "uncorrected_p": 0.4413337707519531,
+  "caveat": "Exploratory; wells are spatially dependent and models/metrics were compared repeatedly. No superiority claim."
+}
